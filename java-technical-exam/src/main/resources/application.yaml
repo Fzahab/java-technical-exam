@@ -1,0 +1,19 @@
+spring:
+  sdatasource:
+    url: jdbc:postgresql://localhost:5432/yourdb
+    username: youruser
+    password: yourpass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true 
+
+  redis:
+    host: localhost
+    port: 6379
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
