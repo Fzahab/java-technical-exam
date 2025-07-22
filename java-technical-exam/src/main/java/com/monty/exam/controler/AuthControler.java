@@ -9,11 +9,9 @@ import com.monty.exam.configuration.UrlConstants;
 import com.monty.exam.core.model.OneTimePassword;
 
 @RestController
-@RequestMapping(value=UrlConstants.API_ROOT_PATH, consumes = {MediaType.APPLICATION_JSON_VALUE} )
+@RequestMapping(value=UrlConstants.AUTH_ROOT_PATH, consumes = {MediaType.APPLICATION_JSON_VALUE} )
 public class AuthControler {
 
-	
-	
 	@PostMapping(UrlConstants.REGISTER)
 	public OneTimePassword registerUser() {
 		return null;

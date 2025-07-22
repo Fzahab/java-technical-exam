@@ -10,7 +10,7 @@ public class User implements Serializable {
 	
 	//(id, name, email, password, age, active, created_at)
 
-	private String id;
+	private Long id;
 	private String name;
 	private String email;
 	private String password;
@@ -22,14 +22,12 @@ public class User implements Serializable {
 		super();
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public String getName() {
 		return name;
 	}

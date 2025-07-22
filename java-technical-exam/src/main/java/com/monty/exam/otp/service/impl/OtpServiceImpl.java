@@ -3,15 +3,18 @@ package com.monty.exam.otp.service.impl;
 import java.time.Duration;
 import java.util.Random;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Service;
 
 import com.monty.exam.otp.service.OtpService;
 
+@Service
 public class OtpServiceImpl implements OtpService {
 
+	@Autowired
 	private  RedisTemplate<String, String> redisTemplate;
     private final Random random = new Random();
-
 	
 	public OtpServiceImpl(RedisTemplate<String, String> redisTemplate) {
 			super();

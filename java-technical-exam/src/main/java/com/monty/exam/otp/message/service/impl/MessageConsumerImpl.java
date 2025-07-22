@@ -3,10 +3,12 @@ package com.monty.exam.otp.message.service.impl;
 import java.util.Map;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
 
 import com.monty.exam.otp.message.service.MessageConsumer;
 import com.monty.exam.otp.message.service.OtpMessageConstants;
 
+//@Component
 public class MessageConsumerImpl implements MessageConsumer {
 
 	@RabbitListener(queues = "otpQueue")
@@ -14,6 +16,6 @@ public class MessageConsumerImpl implements MessageConsumer {
 		String email = message.get(OtpMessageConstants.EMAIL_PAYLOAD_KEY);
 		String otp = message.get(OtpMessageConstants.OTP_PAYLOAD_KEY);
 
-		System.out.println("receive Otp for Email " );
+		System.out.println("receive Otp for Email  "+email+" :"+otp );
 	}
 }
