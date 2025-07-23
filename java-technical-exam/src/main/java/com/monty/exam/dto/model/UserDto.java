@@ -1,21 +1,16 @@
-package com.monty.exam.core.model;
+package com.monty.exam.dto.model;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class User implements Serializable {
-
-	private static final long serialVersionUID = 3724565264140724974L;
-
+public class UserDto {
 	private Long id;
 	private String name;
 	private String email;
-	private String password;
 	private Integer age;
 	private Boolean active;
 	private LocalDateTime createdAt;
 	
-	public User() {
+	public UserDto() {
 		super();
 	}
 
@@ -39,14 +34,6 @@ public class User implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	public Integer getAge() {
@@ -74,8 +61,4 @@ public class User implements Serializable {
 	}
 
 
-	
-	
-	
-	
 }

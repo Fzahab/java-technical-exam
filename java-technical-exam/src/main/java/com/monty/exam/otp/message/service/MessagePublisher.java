@@ -1,5 +1,8 @@
 package com.monty.exam.otp.message.service;
 
+import com.monty.exam.core.model.OneTimePassword;
+
 public interface MessagePublisher {
-    public void sendOtp(String email, String otp) ;
+
+	public void sendOtp(OneTimePassword oneTimePassword) throws Exception;
 }

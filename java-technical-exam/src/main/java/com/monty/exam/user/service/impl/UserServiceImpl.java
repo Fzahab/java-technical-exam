@@ -64,7 +64,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User update(User user) {
 		UserDbModel userToDbUser = UserDbMapper.toDbUser(user);
- 
-        return UserDbMapper.toUser(userToDbUser); 
+		UserDbModel updatedUser = userRepository.save(userToDbUser);
+		
+        return UserDbMapper.toUser(updatedUser); 
     }
 }

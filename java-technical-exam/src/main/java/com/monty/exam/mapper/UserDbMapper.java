@@ -19,6 +19,11 @@ public class UserDbMapper {
 
 	public static UserDbModel toDbUser(User coreModel) {
 		UserDbModel dbUser = new UserDbModel();
+		
+		if(coreModel.getId() != null){	
+			dbUser.setId(coreModel.getId());
+		}
+		
 		dbUser.setName(coreModel.getName());
 		dbUser.setEmail(coreModel.getEmail());
 		dbUser.setPassword(coreModel.getPassword());

@@ -1,9 +1,10 @@
 package com.monty.exam.otp.message.service;
 
-import java.util.Map;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 
 public interface MessageConsumer {
 	
-	public void receiveOtp(Map<String, String> message);
+	public void receiveOtp(String oneTimePassword) throws JsonMappingException, JsonProcessingException;
 
 }

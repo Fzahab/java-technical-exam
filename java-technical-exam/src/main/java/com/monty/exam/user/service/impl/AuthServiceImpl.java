@@ -1,9 +1,13 @@
 package com.monty.exam.user.service.impl;
 
+import java.time.LocalDateTime;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.stereotype.Component;
 
+import com.monty.exam.core.model.OneTimePassword;
 import com.monty.exam.core.model.User;
 import com.monty.exam.otp.message.service.MessagePublisher;
 import com.monty.exam.otp.service.OtpService;
@@ -11,25 +15,32 @@ import com.monty.exam.security.JwtService;
 import com.monty.exam.user.service.AuthService;
 import com.monty.exam.user.service.UserService;
 
+@Component
 public class AuthServiceImpl implements AuthService {
 	@Autowired
 	private UserService userService;
 	@Autowired
 	private OtpService otpService;
-//	@Autowired
-//	private MessagePublisher messagePublisher;
+	@Autowired
+	private MessagePublisher messagePublisher;
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	@Autowired
 	private JwtService jwtService;
     
 	@Override
-	public User register(User user) {
+	public User register(User user) throws Exception {
 		
 		User savedUser = userService.save(user);
 
 		String otp = otpService.generateAndStoreOtp(savedUser.getEmail());
-	//	messagePublisher.sendOtp(savedUser.getEmail(), otp);
+
+		OneTimePassword oneTimePassword = new OneTimePassword();
+		oneTimePassword.setCode(otp);
+		oneTimePassword.setExpirationTime(LocalDateTime.now().plusMinutes(5));
+		oneTimePassword.setUsrId(savedUser.getId());
+		oneTimePassword.setVerified(false);
+		messagePublisher.sendOtp(oneTimePassword);
 
 		return savedUser;
 	}
@@ -49,7 +60,7 @@ public class AuthServiceImpl implements AuthService {
 
 	@Override
 	public String login(String email, String password) {
-		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, email));
+		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(email, password));
 
 		User user = userService.findByEmail(email);
 				

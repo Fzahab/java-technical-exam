@@ -1,21 +1,24 @@
 package com.monty.exam.otp.message.service.impl;
 
-import java.util.Map;
-
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.monty.exam.core.model.OneTimePassword;
 import com.monty.exam.otp.message.service.MessageConsumer;
-import com.monty.exam.otp.message.service.OtpMessageConstants;
 
-//@Component
+@Component
 public class MessageConsumerImpl implements MessageConsumer {
+	@Autowired
+	ObjectMapper objectMapper;
 
 	@RabbitListener(queues = "otpQueue")
-	public void receiveOtp(Map<String, String> message) {
-		String email = message.get(OtpMessageConstants.EMAIL_PAYLOAD_KEY);
-		String otp = message.get(OtpMessageConstants.OTP_PAYLOAD_KEY);
-
-		System.out.println("receive Otp for Email  "+email+" :"+otp );
+	public void receiveOtp(String oneTimePassword) throws JsonMappingException, JsonProcessingException {
+		OneTimePassword userObj = objectMapper.readValue(oneTimePassword, OneTimePassword.class);
+		
+		System.out.println("receive Otp for Email  "+userObj.getUsrId()+" :"+userObj.getCode() );
 	}
 }

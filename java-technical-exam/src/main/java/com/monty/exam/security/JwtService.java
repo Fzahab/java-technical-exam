@@ -1,5 +1,6 @@
 package com.monty.exam.security;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
 import javax.crypto.SecretKey;
@@ -30,7 +31,7 @@ public class JwtService {
 
     public String extractUsername(String token) {
         return Jwts.parser()
-            .decryptWith(getSigningKey())
+            .setSigningKey(getSigningKey())
             .build()
             .parseSignedClaims(token)
             .getPayload()
@@ -43,7 +44,7 @@ public class JwtService {
 
     private boolean isTokenExpired(String token) {
         return Jwts.parser()
-            .decryptWith(getSigningKey())
+            .setSigningKey(getSigningKey())
             .build()
             .parseSignedClaims(token)
             .getPayload()
@@ -52,8 +53,7 @@ public class JwtService {
     }
 
     private SecretKey getSigningKey() {
-        String secretKey = "MySecretSecretJWTKey_98xY!@#9202_secureTokenKey_ForBackend";
-        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
-        return Keys.hmacShaKeyFor(keyBytes);
+        String secretKey = "MySecretSecretJWTKey198xY34692022secureTokenKey3ForBackend";
+        return Keys.hmacShaKeyFor(secretKey.getBytes(StandardCharsets.UTF_8));
     }
 }

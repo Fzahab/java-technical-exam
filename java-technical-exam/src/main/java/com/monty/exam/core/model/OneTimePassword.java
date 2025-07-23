@@ -7,9 +7,8 @@ public class OneTimePassword implements Serializable{
 
 	private static final long serialVersionUID = -286529939451921640L;
 
-
-	private String id;
-	private String usrId;
+	private Long id;
+	private Long usrId;
 	private String code;
 	private Boolean verified;
 	private LocalDateTime expirationTime;
@@ -18,19 +17,17 @@ public class OneTimePassword implements Serializable{
 		super();
 	}
 
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getUsrId() {
+	public Long getUsrId() {
 		return usrId;
 	}
 
-	public void setUsrId(String usrId) {
+	public void setUsrId(Long usrId) {
 		this.usrId = usrId;
 	}
 
