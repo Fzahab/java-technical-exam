@@ -1,4 +1,4 @@
-package com.monty.exam.security;
+package com.monty.exam.security.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -31,7 +31,11 @@ public class SecurityConfig {
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/auth/**", 
+                		"/v3/api-docs/**",          
+                        "/swagger-ui/**",           
+                        "/swagger-ui.html",        
+                        "/v3/api-docs.yaml").permitAll()
                 .anyRequest().authenticated()
             )
             .authenticationProvider(authenticationProvider())

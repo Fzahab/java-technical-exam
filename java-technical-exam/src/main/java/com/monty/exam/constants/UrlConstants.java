@@ -1,4 +1,4 @@
-package com.monty.exam.configuration;
+package com.monty.exam.constants;
 
 public class UrlConstants {
 	

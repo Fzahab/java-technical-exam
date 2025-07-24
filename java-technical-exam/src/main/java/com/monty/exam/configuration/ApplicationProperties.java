@@ -1,9 +1,14 @@
 package com.monty.exam.configuration;
 
-import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
-@ConfigurationProperties
+@Component
 public class ApplicationProperties {
-
+	
+	 @Value("${jwt.token.secret}")
+	 public String secretKey;
+	 @Value("${otp.message.queue}")
+	 public String otpQueueName;
 	 
 }

@@ -1,4 +1,4 @@
-package com.monty.exam.security;
+package com.monty.exam.security.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

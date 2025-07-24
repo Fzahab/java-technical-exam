@@ -15,10 +15,10 @@ public class MessageConsumerImpl implements MessageConsumer {
 	@Autowired
 	ObjectMapper objectMapper;
 
-	@RabbitListener(queues = "otpQueue")
+	@RabbitListener(queues ="${otp.message.queue}")
 	public void receiveOtp(String oneTimePassword) throws JsonMappingException, JsonProcessingException {
-		OneTimePassword userObj = objectMapper.readValue(oneTimePassword, OneTimePassword.class);
+		OneTimePassword otpObj = objectMapper.readValue(oneTimePassword, OneTimePassword.class);
 		
-		System.out.println("receive Otp for Email  "+userObj.getUsrId()+" :"+userObj.getCode() );
+		System.out.println("receive Otp for user id  "+otpObj.getUsrId()+" :"+otpObj.getCode() );
 	}
 }

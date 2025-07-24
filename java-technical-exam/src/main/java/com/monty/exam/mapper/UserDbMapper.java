@@ -1,11 +1,16 @@
 package com.monty.exam.mapper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.monty.exam.core.model.User;
 import com.monty.exam.db.model.UserDbModel;
 
 public class UserDbMapper {
-	
+	private static final Logger log = LoggerFactory.getLogger(UserDbMapper.class);
+
 	public static User toUser(UserDbModel dbModel) {
+		log.info("Map user from db model to core model");
 		User user = new User();
 		user.setId(dbModel.getId());
 		user.setName(dbModel.getName());
@@ -18,6 +23,8 @@ public class UserDbMapper {
 	}
 
 	public static UserDbModel toDbUser(User coreModel) {
+		log.info("Map user from core model to db model");
+
 		UserDbModel dbUser = new UserDbModel();
 		
 		if(coreModel.getId() != null){	

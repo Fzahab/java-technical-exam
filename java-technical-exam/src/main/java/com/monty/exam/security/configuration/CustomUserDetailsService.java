@@ -1,4 +1,4 @@
-package com.monty.exam.security;
+package com.monty.exam.security.configuration;
 
 import java.util.List;
 

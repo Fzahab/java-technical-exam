@@ -17,3 +17,6 @@ spring:
     port: 5672
     username: guest
     password: guest
+
+otp.message.queue: OTP_MESSAGE_QUEUE
+jwt.token.secret: MySecretSecretJWTKey198xY34692022secureTokenKey3ForBackend
