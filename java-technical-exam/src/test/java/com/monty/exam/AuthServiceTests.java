@@ -24,7 +24,7 @@ import com.monty.exam.security.JwtService;
 import com.monty.exam.user.service.UserService;
 import com.monty.exam.user.service.impl.AuthServiceImpl;
 
-class JavaTechnicalExamApplicationTests {
+class AuthServiceTests {
 
     @InjectMocks
     private AuthServiceImpl authService;
@@ -50,7 +50,7 @@ class JavaTechnicalExamApplicationTests {
     }
 
     @Test
-    public void testRegister_Success() throws Exception {
+    public void testRegister() throws Exception {
         User user = new User();
         user.setEmail("test@example.com");
         user.setId(1L);
@@ -67,7 +67,7 @@ class JavaTechnicalExamApplicationTests {
     }
 
     @Test
-    public void testVerifyOtp_Success() {
+    public void testVerifyOtp() {
         String email = "test@example.com";
         String otp = "123456";
 
@@ -103,7 +103,7 @@ class JavaTechnicalExamApplicationTests {
     }
 
     @Test
-    public void testLogin_Success() {
+    public void testLogin() {
         String email = "test@example.com";
         String password = "password";
         String token = "jwt-token";
