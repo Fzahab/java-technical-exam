@@ -1,28 +1,28 @@
 User Registration System – Technical Exam
-
-A secure and modular user registration system built with Java Spring Boot, integrating PostgreSQL, Redis, RabbitMQ, JWT Authentication.
- Project Overview
+ A secure and modular user registration system built with Java Spring Boot, integrating PostgreSQL, Redis, RabbitMQ, JWT Authentication.
+Project Overview
 This application enables secure user registration through:
-Encrypted password handling
-One-Time Password (OTP) generation and verification
-Integration with Redis for OTP storage
-RabbitMQ for asynchronous messaging
-Secure login and JWT-protected endpoints
+   1- Encrypted password handling
+   2- One-Time Password (OTP) generation and verification
+   3- Integration with Redis for OTP storage
+   4- RabbitMQ for asynchronous messaging
+   5- Secure login and JWT-protected endpoints
 Tech Stack	
-Java 17+
-Spring Boot (Web, Security, Data JPA, AMQP, Redis)
-PostgreSQL
-Redis
-RabbitMQ
-JWT (JSON Web Token)
-JUnit (Unit testing)
+   1- Java 17+
+   2- Spring Boot (Web, Security, Data JPA, AMQP, Redis)
+   3- PostgreSQL
+   4- Redis
+   5- RabbitMQ
+   6- JWT (JSON Web Token)
+   7 JUnit (Unit testing)
+ 
 Functional Flow
-
 1. User registers ➝ Saved as inactive in DB ➝ OTP generated, stored in Redis
 2. OTP message published to RabbitMQ ➝ Simulated as console log
 3. User verifies OTP ➝ Token checked from Redis ➝ Account activated
 4. User logs in ➝ JWT token returned
 5. Authenticated endpoints require JWT
+
 
  API Endpoints
 
