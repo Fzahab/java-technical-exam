@@ -1,20 +1,33 @@
-User Registration System – Technical Exam
- A secure and modular user registration system built with Java Spring Boot, integrating PostgreSQL, Redis, RabbitMQ, JWT Authentication.
-Project Overview
+# User Registration System – Technical Exam
+
+A secure and modular user registration system built with Java Spring Boot, integrating PostgreSQL, Redis, RabbitMQ, and JWT Authentication.
+
+---
+
+## Project Overview
+
 This application enables secure user registration through:
-   1- Encrypted password handling
-   2- One-Time Password (OTP) generation and verification
-   3- Integration with Redis for OTP storage
-   4- RabbitMQ for asynchronous messaging
-   5- Secure login and JWT-protected endpoints
-Tech Stack	
-   1- Java 17+
-   2- Spring Boot (Web, Security, Data JPA, AMQP, Redis)
-   3- PostgreSQL
-   4- Redis
-   5- RabbitMQ
-   6- JWT (JSON Web Token)
-   7 JUnit (Unit testing)
+
+1. Encrypted password handling  
+2. One-Time Password (OTP) generation and verification  
+3. Integration with Redis for OTP storage  
+4. RabbitMQ for asynchronous messaging  
+5. Secure login and JWT-protected endpoints  
+
+---
+
+## Tech Stack
+
+| #   | Technology                                      |
+|-----|-------------------------------------------------|
+| 1   | Java 17+                                        |
+| 2   | Spring Boot (Web, Security, Data JPA, AMQP, Redis) |
+| 3   | PostgreSQL                                      |
+| 4   | Redis                                           |
+| 5   | RabbitMQ                                        |
+| 6   | JWT (JSON Web Token)                            |
+| 7   | JUnit (Unit Testing)                            |
+
  
 Functional Flow
 1. User registers ➝ Saved as inactive in DB ➝ OTP generated, stored in Redis
@@ -33,7 +46,7 @@ Functional Flow
 | POST   | `/api/auth/login`     | Login and receive JWT     | ❌ No          |
 | GET    | `/api/user`           | Get user information      | ✅ Yes         |
 
->  Use the **Authorization tab** in Postman with **Bearer Token** for secured endpoints.
+  Use the **Authorization tab** in Postman with **Bearer Token** for secured endpoints.
 
  Access Points
 
