@@ -61,28 +61,23 @@ Functional Flow
 
  Docker Compose Files:
 
- RabbitMQ
-```yaml
+```
 version: "3.9"
+
 services:
   rabbitmq:
     image: rabbitmq:4.1-management
     ports:
       - "5672:5672"
       - "15672:15672"
-```
-redis 
-```
-version: "3.8"
-services:
+    restart: unless-stopped
+
   redis:
     image: redis:7.2-alpine
     ports:
       - "6379:6379"
-```
-postgres 
-```
-services:
+    restart: unless-stopped
+
   postgres:
     image: postgres:14
     restart: always
@@ -97,4 +92,5 @@ services:
 
 volumes:
   db_data:
+
 ```
