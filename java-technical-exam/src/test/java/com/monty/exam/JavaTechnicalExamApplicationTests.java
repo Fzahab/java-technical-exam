@@ -13,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 
@@ -25,7 +24,6 @@ import com.monty.exam.security.JwtService;
 import com.monty.exam.user.service.UserService;
 import com.monty.exam.user.service.impl.AuthServiceImpl;
 
-@SpringBootTest
 class JavaTechnicalExamApplicationTests {
 
     @InjectMocks
